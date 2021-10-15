@@ -4,6 +4,11 @@
     --dark-cyan: hsl(176, 72%, 28%);
     --black: hsl(0, 0%, 0%);
     --gray: hsl(0, 0%, 48%);
+    --body-background: #fafafa;
+    --white: #ffffff;
+    --section-border: rgba(0, 0, 0, 0.0497193);
+    --bar-color: hsla(0, 0%, 48%, 0.1);
+    --radius: 33.5px;
 }
 * {
     margin: 0;
@@ -14,7 +19,7 @@ body {
     font-family: "Commissioner", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    background-color: #fafafa;
+    background-color: var(--body-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,8 +29,15 @@ h1,
 h2,
 h3,
 h4 {
+    font-family: inherit;
     color: var(--black);
+    font-weight: 700;
 }
+h1 {
+    font-size: 32px;
+    line-height: 39px;
+}
+/*Header*/
 header {
     width: 100%;
     background-position-y: bottom;
@@ -46,6 +58,27 @@ a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
+/*Buttons*/
+button {
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+}
+.green-button {
+    color: var(--white);
+    background-color: var(--cyan);
+    font-weight: 700;
+}
+.green-button:hover {
+    background-color: var(--dark-cyan);
+}
+
+/*Main*/
 main {
     display: flex;
     flex-direction: column;
@@ -54,8 +87,8 @@ main {
     gap: 24px;
 }
 main > section {
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    background-color: var(--white);
+    border: 1px solid var(--section-border);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -64,6 +97,10 @@ main > section {
     position: relative;
     width: 100%;
 }
+
+/*Main >
+*   Title container
+*/
 .mastercraft {
     position: absolute;
     top: -28px;
@@ -72,58 +109,116 @@ main > section {
     border-radius: 50%;
     border: none;
 }
-button {
-    border-radius: 33.5px;
-    border: none;
-    cursor: pointer;
-}
+
 .button-container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 5px;
 }
 section.title button {
     height: 56px;
     text-align: center;
 }
-section.title button:first-of-type {
-    padding-left: 40px;
-    padding-right: 40px;
+section.title h2 {
+    margin-bottom: 15px;
+    text-align: center;
 }
-section.title button:last-of-type {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    padding-right: 24px;
+section.title p {
+    margin-bottom: 40px;
+    text-align: center;
+}
+section.title button:first-of-type {
+    padding: 0 40px;
+}
+section.title button:last-of-type:hover {
+    opacity: 0.5;
+}
+.bookmark-img {
+    width: 56px;
+    height: 56px;
+    background-image: url("../images/icon-bookmark.svg");
+}
+/*Main >
+*   Stats container
+*/
+.bar,
+.status {
+    height: 12px;
+    border-radius: var(--radius);
+}
+.bar {
+    background-color: var(--bar-color);
+    width: 100%;
+}
+.status {
+    width: 70%;
+    background-color: var(--cyan);
+    opacity: 1;
+}
+.table {
+    margin-bottom: 37px;
 }
 /*Desktop*/
 @media screen and (min-width: 1000px) {
+    .mobile {
+        display: none;
+    }
+    /*Header*/
     header {
         height: 400px;
         background-image: url("../images/image-hero-desktop.jpg");
         padding: 48px 166px 0;
         margin-bottom: -100px;
     }
-    .hamburger-icon {
-        display: none;
-    }
     .desktop-nav {
-        color: white;
+        color: var(--white);
         display: flex;
         gap: 30px;
         align-items: center;
     }
+    /*Main*/
     main {
         width: 730px;
     }
     main > section {
         padding: 48px;
     }
+    /*Main >
+    *   Title container
+    */
+    section.title button:last-of-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding-right: 24px;
+        padding-left: 0;
+        font-weight: 700;
+        color: var(--gray);
+    }
+    /*Main >
+    *   Stats container
+    */
+    .table {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: start;
+        width: 100%;
+        gap: 47px;
+    }
+    .table-item:not(:last-of-type) {
+        border-right: 1px solid var(--gray);
+    }
 }
 /*Mobile*/
 @media screen and (max-width: 999px) {
+    body {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    /*header*/
     header {
         height: 300px;
         background-image: url("../images/image-hero-mobile.jpg");
@@ -133,10 +228,40 @@ section.title button:last-of-type {
     .desktop {
         display: none;
     }
+    /*Main*/
     main {
         width: 87.5%;
     }
     main > section {
         padding: 40px 24px;
+    }
+    /*Main >
+    *   Title container
+    */
+    section.title button:last-of-type {
+        padding: 0;
+    }
+    section.title h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    /*Main >
+    *   Stats container
+    */
+    .table {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .table-item > * {
+        text-align: center;
+    }
+    .table-item:not(:last-of-type):after {
+        content: "";
+        display: block;
+        margin: 24px auto;
+        width: 80px;
+        border-top: 1px solid var(--gray);
     }
 }
