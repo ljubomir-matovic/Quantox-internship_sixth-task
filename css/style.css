@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+:root {
+    --cyan: hsl(176, 50%, 47%);
+    --dark-cyan: hsl(176, 72%, 28%);
+    --black: hsl(0, 0%, 0%);
+    --gray: hsl(0, 0%, 48%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Commissioner", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--gray);
+}
+header {
+    width: 100%;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+}
+a {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+main > section {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    border-radius: 8px;
+}
+/*Desktop*/
+@media screen and (min-width: 1000px) {
+    header {
+        height: 400px;
+        background-image: url("../images/image-hero-desktop.jpg");
+        padding: 48px 166px 0;
+        margin-bottom: -100px;
+    }
+    .hamburger-icon {
+        display: none;
+    }
+    .desktop-nav {
+        color: white;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+    main {
+        width: 730px;
+    }
+}
+/*Mobile*/
+@media screen and (max-width: 999px) {
+    header {
+        height: 300px;
+        background-image: url("../images/image-hero-mobile.jpg");
+        margin-bottom: -70px;
+        padding: 32px 6.5% 0;
+    }
+    .desktop-nav {
+        display: none;
+    }
+    main {
+        width: 87.5%;
+    }
+}
