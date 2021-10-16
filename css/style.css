@@ -9,6 +9,7 @@
     --section-border: rgba(0, 0, 0, 0.0497193);
     --bar-color: hsla(0, 0%, 48%, 0.1);
     --radius: 33.5px;
+    --about-border: rgba(0, 0, 0, 0.15);
 }
 * {
     margin: 0;
@@ -32,6 +33,10 @@ h4 {
     font-family: inherit;
     color: var(--black);
     font-weight: 700;
+}
+h5 {
+    font-weight: 500;
+    color: var(--cyan);
 }
 h1 {
     font-size: 32px;
@@ -78,88 +83,6 @@ button {
     background-color: var(--dark-cyan);
 }
 
-/*Main*/
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-}
-main > section {
-    background-color: var(--white);
-    border: 1px solid var(--section-border);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-}
-
-/*Main >
-*   Title container
-*/
-.mastercraft {
-    position: absolute;
-    top: -28px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: none;
-}
-
-.button-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-}
-section.title button {
-    height: 56px;
-    text-align: center;
-}
-section.title h2 {
-    margin-bottom: 15px;
-    text-align: center;
-}
-section.title p {
-    margin-bottom: 40px;
-    text-align: center;
-}
-section.title button:first-of-type {
-    padding: 0 40px;
-}
-section.title button:last-of-type:hover {
-    opacity: 0.5;
-}
-.bookmark-img {
-    width: 56px;
-    height: 56px;
-    background-image: url("../images/icon-bookmark.svg");
-}
-/*Main >
-*   Stats container
-*/
-.bar,
-.status {
-    height: 12px;
-    border-radius: var(--radius);
-}
-.bar {
-    background-color: var(--bar-color);
-    width: 100%;
-}
-.status {
-    width: 70%;
-    background-color: var(--cyan);
-    opacity: 1;
-}
-.table {
-    margin-bottom: 37px;
-}
 /*Desktop*/
 @media screen and (min-width: 1000px) {
     .mobile {
@@ -178,38 +101,21 @@ section.title button:last-of-type:hover {
         gap: 30px;
         align-items: center;
     }
-    /*Main*/
-    main {
-        width: 730px;
+    h2 {
+        font-size: 28px;
+        line-height: 34px;
     }
-    main > section {
-        padding: 48px;
+    h3 {
+        font-size: 20px;
+        line-height: 24px;
     }
-    /*Main >
-    *   Title container
-    */
-    section.title button:last-of-type {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        padding-right: 24px;
-        padding-left: 0;
-        font-weight: 700;
-        color: var(--gray);
+    h4 {
+        font-size: 18px;
+        line-height: 22px;
     }
-    /*Main >
-    *   Stats container
-    */
-    .table {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: start;
-        width: 100%;
-        gap: 47px;
-    }
-    .table-item:not(:last-of-type) {
-        border-right: 1px solid var(--gray);
+    h5 {
+        font-size: 15px;
+        line-height: 18px;
     }
 }
 /*Mobile*/
@@ -228,40 +134,20 @@ section.title button:last-of-type:hover {
     .desktop {
         display: none;
     }
-    /*Main*/
-    main {
-        width: 87.5%;
-    }
-    main > section {
-        padding: 40px 24px;
-    }
-    /*Main >
-    *   Title container
-    */
-    section.title button:last-of-type {
-        padding: 0;
-    }
-    section.title h2 {
+    h2 {
         font-size: 20px;
         line-height: 24px;
     }
-    /*Main >
-    *   Stats container
-    */
-    .table {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    h3 {
+        font-size: 18px;
+        line-height: 22px;
     }
-    .table-item > * {
-        text-align: center;
+    h4 {
+        font-size: 14px;
+        line-height: 17px;
     }
-    .table-item:not(:last-of-type):after {
-        content: "";
-        display: block;
-        margin: 24px auto;
-        width: 80px;
-        border-top: 1px solid var(--gray);
+    h5 {
+        font-size: 14px;
+        line-height: 17px;
     }
 }

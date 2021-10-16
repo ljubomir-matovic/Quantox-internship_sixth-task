@@ -1,0 +1,154 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+main > section {
+    background-color: var(--white);
+    border: 1px solid var(--section-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+/*Main >
+*   Title container
+*/
+.mastercraft {
+    position: absolute;
+    top: -28px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+section.title button {
+    height: 56px;
+    text-align: center;
+}
+section.title h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+section.title p {
+    margin-bottom: 40px;
+    text-align: center;
+}
+section.title button:first-of-type {
+    padding: 0 40px;
+}
+section.title button:last-of-type:hover {
+    opacity: 0.5;
+}
+.bookmark-img {
+    width: 56px;
+    height: 56px;
+    background-image: url("../images/icon-bookmark.svg");
+}
+/*Main >
+*   Stats container
+*/
+.bar,
+.status {
+    height: 12px;
+    border-radius: var(--radius);
+}
+.bar {
+    background-color: var(--bar-color);
+    width: 100%;
+}
+.status {
+    width: 70%;
+    background-color: var(--cyan);
+    opacity: 1;
+}
+.table {
+    margin-bottom: 37px;
+}
+/*Desktop*/
+@media screen and (min-width: 1000px) {
+    /*Main*/
+    main {
+        width: 730px;
+        margin-bottom: 124px;
+    }
+    main > section {
+        padding: 48px;
+    }
+    /*Main >
+    *   Title container
+    */
+    section.title button:last-of-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding-right: 24px;
+        padding-left: 0;
+        font-weight: 700;
+        color: var(--gray);
+    }
+    /*Main >
+    *   Stats container
+    */
+    .table {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: start;
+        width: 100%;
+        gap: 47px;
+    }
+    .table-item:not(:last-of-type) {
+        border-right: 1px solid var(--gray);
+    }
+}
+/*Mobile*/
+@media screen and (max-width: 999px) {
+    /*Main*/
+    main {
+        width: 87.5%;
+        margin-bottom: 76px;
+    }
+    main > section {
+        padding: 40px 24px;
+    }
+    /*Main >
+    *   Title container
+    */
+    section.title button:last-of-type {
+        padding: 0;
+    }
+    /*Main >
+    *   Stats container
+    */
+    .table {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .table-item > * {
+        text-align: center;
+    }
+    .table-item:not(:last-of-type):after {
+        content: "";
+        display: block;
+        margin: 24px auto;
+        width: 80px;
+        border-top: 1px solid var(--gray);
+    }
+}
