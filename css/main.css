@@ -59,6 +59,15 @@ section.title button:last-of-type:hover {
     height: 56px;
     background-image: url("../images/icon-bookmark.svg");
 }
+.bookmark.active-bookmark .bookmark-img {
+    background-image: url("../images/icon-bookmark-active.svg");
+}
+.bookmark.active-bookmark span {
+    color: var(--cyan);
+}
+.bookmark.active-bookmark span::after {
+    content: "ed";
+}
 /*Main >
 *   Stats container
 */
