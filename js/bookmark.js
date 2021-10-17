@@ -18,4 +18,4 @@ var bookmark = function () {
     };
     return this;
 }.call({});
-window.addEventListener("load", bookmark.load());
+window.addEventListener("load", bookmark.load);
