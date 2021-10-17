@@ -6,17 +6,34 @@
     z-index: 100;
     width: 100%;
     min-height: 100vh;
+    overflow: scroll;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.modal-container.modal-form {
-    position: absolute;
-}
 .modal {
-    position: absolute;
+    position: fixed;
+    overflow: scroll;
     background-color: var(--white);
     border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.modal.thanks {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 30px;
+    gap: 30px;
+    overflow: hidden;
+}
+.modal.thanks > * {
+    text-align: center;
+}
+.modal.thanks p {
+    width: 90%;
+    margin: 0 auto;
 }
 .modal h3 {
     align-self: flex-start;
@@ -26,9 +43,12 @@
     cursor: pointer;
 }
 .close-modal {
-    position: absolute;
+    align-self: flex-end;
     cursor: pointer;
     opacity: 0.4;
+}
+.modal > p {
+    align-self: flex-start;
 }
 .close-modal:hover {
     opacity: 1;
@@ -40,6 +60,7 @@ input[type="radio"] {
     border-radius: 50%;
     background-color: var(--white);
     background-clip: content-box;
+    -webkit-background-clip: content-box;
     padding: 4px;
     border: 2px solid var(--about-border);
     grid-area: radio;
@@ -128,9 +149,9 @@ form {
 /*Desktop*/
 @media screen and (min-width: 1000px) {
     .modal {
-        margin: 125px auto;
         padding: 48px;
         width: 730px;
+        height: 70vh;
     }
     .description {
         grid-template-columns: 24px auto auto;
@@ -158,6 +179,8 @@ form {
     .modal {
         padding: 40px 24px;
         width: 87.5%;
+        z-index: 500;
+        height: 90vh;
     }
     .description {
         grid-template-columns: 30px auto;
@@ -166,10 +189,6 @@ form {
     .label-header {
         flex-direction: column;
         align-items: flex-start;
-    }
-    .close-modal {
-        top: 36px;
-        right: 24px;
     }
     .number {
         justify-content: flex-start;
