@@ -44,11 +44,11 @@
       <section class="stats">
         <section class="table">
           <section class="table-item">
-            <h1>$89,914</h1>
+            <h1>$<span id="total-amount">89,914</span></h1>
             <p>of $100,000 backed</p>
           </section>
           <section class="table-item">
-            <h1>5,007</h1>
+            <h1 id="total-backers">5,007</h1>
             <p>total backers</p>
           </section>
           <section class="table-item">
@@ -119,7 +119,7 @@
         </section>
       </section>
     </main>
-    <section class="modal-container modal-form">
+    <section class="modal-container modal-form" style="display: none;">
       <section class="modal about-container">
         <img src="./images/icon-close-modal.svg" alt="icon-close-modal" class="close-modal">
         <h3>Back this project</h3>
@@ -140,9 +140,9 @@
               <section class="input-and-button">
               <section class="money-input">
                 <p>$</p>
-                <input type="number" name="money" min="0" value="0">
+                <input type="number" name="money" min="0" value="0" required>
               </section>
-              <button class="green-button">Support</button>
+              <button class="green-button">Continue</button>
               </section>
             </form>
           </label>
@@ -166,7 +166,7 @@
                 <section class="input-and-button">
                   <section class="money-input">
                     <p>$</p>
-                    <input type="number" name="money" min="25" value="25">
+                    <input type="number" name="money" min="25" value="25" required>
                   </section>
                   <button class="green-button">Continue</button>
                 </section>
@@ -193,7 +193,7 @@
               <section class="input-and-button">
                 <section class="money-input">
                   <p>$</p>
-                  <input type="number" name="money" min="75" value="75">
+                  <input type="number" name="money" min="75" value="75" required>
                 </section>
                 <button class="green-button">Continue</button>
               </section>
@@ -219,7 +219,7 @@
               <section class="input-and-button">
                 <section class="money-input">
                   <p>$</p>
-                  <input type="number" name="money" min="200" value="200">
+                  <input type="number" name="money" min="200" value="200" required>
                 </section>
                 <button class="green-button">Continue</button>
               </section>
@@ -227,7 +227,7 @@
           </label>
       </section>
     </section>
-    <section class="modal-container">
+    <section class="modal-container" style="display: none;">
       <section class="modal thanks">
         <img src="./images/icon-check.svg" alt="icon-check">
         <h1>Thanks for your support!</h1>
@@ -240,4 +240,5 @@
   </body>
   <script src="./js/bookmark.js"></script>
   <script src="./js/modal.js"></script>
+  <script src="./js/status.js"></script>
 </html>

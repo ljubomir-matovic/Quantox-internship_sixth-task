@@ -18,6 +18,10 @@ var modal = function () {
     this.form = document.querySelector(".modal-container.modal-form");
     this.thanks = document.querySelector(".modal-container:not(.modal-form)");
     this.activeRadio = null;
+    /**Open given modal. If selected is passed as attribute check radio button
+     * @param {*} modal
+     * @param {*} selected
+     */
     this.open = (modal, selected = null) => {
         try {
             modal.style.display = "flex";
@@ -27,17 +31,32 @@ var modal = function () {
                 ];
                 if (!el.disabled) {
                     el.checked = true;
-                    el = el.parentElement;
+                    el = getParent(el, 2);
+                    document
+                        .querySelectorAll(".label-active")
+                        .forEach((l) => l.classList.remove("label-active"));
                     el.classList.add("label-active");
                     this.activeRadio = el;
                 }
             }
         } catch (err) {}
     };
+    /**Close given modal
+     * @param {*} modal
+     */
     this.close = (modal) => {
         try {
             modal.style.display = "none";
         } catch (err) {}
+    };
+    /**Close modal if you click outside of modal
+     * @param {*} target
+     */
+    this.closeOuter = (target) => {
+        const close = this.close;
+        target.addEventListener("click", (e) => {
+            if (e.target == target) close(target);
+        });
     };
     this.load = () => {
         this.close(this.form);
@@ -49,6 +68,8 @@ window.addEventListener("load", modal.load);
 document.querySelector(".close-modal").addEventListener("click", (e) => {
     modal.close(getParent(e.target, 2));
 });
+modal.closeOuter(modal.form);
+modal.closeOuter(modal.thanks);
 document
     .querySelector(".thanks button")
     .addEventListener("click", () => modal.close(modal.thanks));
@@ -66,3 +87,10 @@ document.getElementsByName("radio").forEach((r) => {
             modal.activeRadio = parent;
         });
 });
+document
+    .querySelectorAll(".about-container button:not([disabled])")
+    .forEach((b, i) => {
+        b.addEventListener("click", () => {
+            modal.open(modal.form, i + 1);
+        });
+    });
