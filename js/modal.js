@@ -94,3 +94,10 @@ document
             modal.open(modal.form, i + 1);
         });
     });
+
+/*Menu*/
+document
+    .querySelector(".hamburger-icon")
+    .addEventListener("click", () =>
+        document.querySelector("header").classList.toggle("active-menu")
+    );
