@@ -1,0 +1,207 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--modal-background);
+    z-index: 100;
+    width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    position: fixed;
+    overflow: auto;
+    background-color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.modal.thanks {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 30px;
+    gap: 30px;
+    overflow: hidden;
+}
+.modal.thanks > * {
+    text-align: center;
+}
+.modal.thanks p {
+    width: 90%;
+    margin: 0 auto;
+}
+.modal h3 {
+    align-self: flex-start;
+}
+.modal h3:hover {
+    color: var(--cyan);
+    cursor: pointer;
+}
+.close-modal {
+    align-self: flex-end;
+    cursor: pointer;
+    opacity: 0.4;
+}
+.modal > p {
+    align-self: flex-start;
+}
+.close-modal:hover {
+    opacity: 1;
+}
+input[type="radio"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--white);
+    background-clip: content-box;
+    -webkit-background-clip: content-box;
+    padding: 4px;
+    border: 2px solid var(--about-border);
+    grid-area: radio;
+    align-self: center;
+}
+input[type="radio"]:checked {
+    background-color: var(--cyan);
+}
+input[type="number"] {
+    outline: none;
+    border: none;
+    max-width: 50px;
+    font-weight: 700;
+}
+input[type="number"]::before {
+    content: "$";
+}
+.money-input {
+    width: 100px;
+    height: 48px;
+    border-radius: 33.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid var(--about-border);
+}
+.money-input:focus {
+    border: 2px solid var(--cyan);
+}
+.input-and-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.label-header {
+    grid-area: header;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.label-header h4:hover {
+    cursor: pointer;
+    color: var(--cyan);
+}
+.label-container {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--about-border);
+}
+.description {
+    width: 100%;
+    padding: 24px;
+    display: grid;
+    gap: 10px;
+    position: relative;
+}
+.label-active.label-container {
+    border: 2px solid var(--cyan);
+}
+.number {
+    grid-area: number;
+    display: flex;
+    gap: 4px;
+}
+.text {
+    grid-area: text;
+}
+.label-container form,
+.label-container .text::after {
+    display: none;
+}
+.label-active.label-container form {
+    display: flex;
+}
+form {
+    grid-area: form;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 23px 10px;
+    border-top: 1px solid var(--about-border);
+}
+/*Desktop*/
+@media screen and (min-width: 1000px) {
+    .modal {
+        padding: 48px;
+        width: 730px;
+        height: 85vh;
+    }
+    .description {
+        grid-template-columns: 24px auto auto;
+        grid-template-areas: "radio header number" ". text text" "form form form";
+        column-gap: 24px;
+        row-gap: 17px;
+    }
+    .label-header {
+        align-items: center;
+    }
+    .close-modal {
+        top: 44px;
+        right: 26px;
+    }
+    .number {
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    form {
+        justify-content: space-between;
+    }
+}
+/*Mobile*/
+@media screen and (max-width: 999px) {
+    .modal {
+        padding: 40px 24px;
+        width: 87.5%;
+        z-index: 500;
+        height: 90vh;
+    }
+    .description {
+        grid-template-columns: 30px auto;
+        grid-template-areas: "radio header" "text text" "number number";
+    }
+    .label-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .number {
+        justify-content: flex-start;
+        align-items: center;
+    }
+    form {
+        flex-direction: column;
+    }
+}
+/*XS mobile*/
+@media screen and (max-width: 330px) {
+    form button {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
